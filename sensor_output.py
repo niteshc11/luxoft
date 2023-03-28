@@ -1,5 +1,8 @@
+
+
+
 ## No. of Processed files
-total_files= len([name for name in os.listdir('/mapr/datalake/uhc/ei/pi_ara/provider/development/ACC/Optimization/acc_test_aug_22/app1_op/testing/') if os.path.isfile(os.path.join('/mapr/datalake/uhc/ei/pi_ara/provider/development/ACC/Optimization/acc_test_aug_22/app1_op/testing/', name))])
+total_files= len([name for name in os.listdir('/<data_path>/testing/') if os.path.isfile(os.path.join('/mapr/datalake/uhc/ei/pi_ara/provider/development/ACC/Optimization/acc_test_aug_22/app1_op/testing/', name))])
 
 >>> total_files
 2
@@ -7,7 +10,7 @@ total_files= len([name for name in os.listdir('/mapr/datalake/uhc/ei/pi_ara/prov
 ####################################################################################################################
 
 
-db = spark.read.format("csv").load("/datalake/uhc/ei/pi_ara/provider/development/ACC/Optimization/acc_test_aug_22/app1_op/testing/*",header='true',inferSchema="true")
+db = spark.read.format("csv").load("/<data_path>/testing/*",header='true',inferSchema="true")
 db.createOrReplaceTempView("db")
 
 
